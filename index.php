@@ -530,6 +530,95 @@
     .navbar-brand .brand-text {
       color: #000000 !important;
     }
+
+    /* ===== ALIGNEMENT À DROITE SUR MOBILE ===== */
+@media (max-width: 768px) {
+  /* Aligner le texte des sections à droite */
+  section .container,
+  section .row,
+  section [class*="col-"] {
+    text-align: right;
+  }
+  
+  /* Ajuster les titres pour rester lisibles */
+  section .section-title::after {
+    left: auto;
+    right: 0;
+  }
+  
+  /* Inverser les flexbox pour garder une cohérence visuelle */
+  section .d-flex {
+    justify-content: flex-end;
+  }
+  
+  /* Ajuster les marges pour les éléments avec icônes */
+  section .me-2,
+  section .me-3,
+  section .me-auto {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  /* Aligner les badges à droite */
+  section .badge-bleu-custom,
+  section .badge {
+    text-align: right;
+  }
+  
+  /* Garder les cartes avec un texte centré ou aligné selon le design */
+  section .card-formation,
+  section .testimonial-card,
+  section .partner-logo {
+    text-align: right;
+  }
+  
+  /* Ajuster les listes */
+  section ul,
+  section ol {
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+  
+  /* Inverser l'ordre des éléments flex dans la navbar et autres composants */
+  section .navbar-collapse {
+    text-align: right;
+  }
+  
+  /* Pour les formulaires */
+  section .form-control,
+  section .form-select,
+  section .btn {
+    text-align: right;
+  }
+  
+  /* Pour les icônes dans les boutons */
+  section .btn i {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  /* Pour les éléments avec marge à gauche */
+  section .ms-2,
+  section .ms-3,
+  section .ms-auto {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  /* Pour le footer */
+  footer .container,
+  footer .row,
+  footer [class*="col-"] {
+    text-align: right;
+  }
+  
+  footer .d-flex {
+    justify-content: flex-end;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
@@ -539,8 +628,10 @@
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="AK formations.jpeg" alt="AK Formations Logo" class="logo-img">
-      <span class="brand-text">AK<span> Formations</span></span>
-    </a>
+   <span class="brand-text fw-bold" style="color: #0000FF !important;">
+  A.K Formations
+</span>
+</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -584,7 +675,7 @@
         <div class="content-wrapper">
           <span class="badge-bleu-custom mb-4 bg-warning text-dark border-0"><i class="fas fa-map-marker-alt me-2"></i>Abidjan • Bouaké</span>
           <h1 class="hero-title">Former les talents, <span class="text-warning">construire les leaders</span> de demain</h1>
-          <p class="hero-sub my-4">AK Formations est un cabinet de formation basé en Côte d'Ivoire, spécialisé dans la qualification professionnelle, le renforcement de capacités et l'insertion professionnelle des jeunes et diplômés.</p>
+          <p class="hero-sub my-4">AK Formations est un cabinet de formation basé en Côte d'Ivoire, spécialisé dans la qualification professionnelle, le renforcement de capacités et l'insertion professionnelle des jeunes talents et diplômés.</p>
           <p class="mb-4 text-white-80 fw-medium">Créé à Abidjan, le cabinet dispose également d'un bureau opérationnel à Bouaké, afin de rapprocher ses services des jeunes talents et professionnels de l'intérieur du pays. Nous accompagnons les talents à développer leurs compétences, accéder à des opportunités professionnelles et construire des projets solides.</p>
           <div class="d-flex flex-wrap gap-3">
             <a href="#formations" class="btn btn-gold-custom"><i class="fas fa-graduation-cap me-2"></i>Découvrir nos formations</a>
@@ -598,7 +689,7 @@
           <div class="row g-3">
             <div class="col-6">
               <div class="stat-item">
-                <div class="stat-number">500+</div>
+                <div class="stat-number">150+</div>
                 <div class="stat-label">Apprenants</div>
               </div>
             </div>
@@ -639,8 +730,8 @@
             </div>
             <h4 class="mb-0 ms-3">Qui sommes-nous ?</h4>
           </div>
-          <p><strong>AK Formations</strong> est une Société à Responsabilité Limitée (SARL) créée </strong> à Abidjan, Côte d'Ivoire. Le cabinet intervient dans le domaine de la formation professionnelle, de l'accompagnement des jeunes talents et du développement des compétences.</p>
-          <p class="mt-3">Afin d'assurer une meilleure proximité avec ses bénéficiaires, A.K Formations dispose également d'un site ou bureau opérationnel à <strong>Bouaké</strong>, qui permet de déployer ses activités de formation et d'accompagnement dans la région du centre du pays.</p>
+          <p><strong>A.K Formations</strong> est une Société à Responsabilité Limitée (SARL) créée </strong> à Abidjan, Côte d'Ivoire. Le cabinet intervient dans le domaine de la formation professionnelle, de l'accompagnement des jeunes talents et du développement des compétences.</p>
+          <p class="mt-3">Afin d'assurer une meilleure proximité avec ses bénéficiaires, A.K Formations dispose également d'un bureau opérationnel à <strong>Bouaké</strong>, qui permet de déployer ses activités de formation et d'accompagnement dans la région du centre du pays.</p>
           <div class="mt-4 p-3 bg-primary-soft rounded-4">
             <p class="mb-0 fw-bold" style="color: var(--primary-deep);"><i class="fas fa-quote-right me-2 text-warning"></i>Notre mission est de former, accompagner et autonomiser les jeunes talents et diplômés afin de faciliter leur insertion dans le monde professionnel.</p>
           </div>
@@ -683,9 +774,9 @@
       <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-chart-line"></i> <span class="fw-semibold d-block mt-2">Gestion Commerciale & Marketing</span></div></div>
       <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-calculator"></i> <span class="fw-semibold d-block mt-2">Comptabilité</span></div></div>
       <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-user-tie"></i> <span class="fw-semibold d-block mt-2">Assistanat de Direction</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-rocket"></i> <span class="fw-semibold d-block mt-2">Entrepreneuriat</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-rocket"></i> <span class="fw-semibold d-block mt-2">Entrepreneuriat et Gestion de projet</span></div></div>
       <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-brain"></i> <span class="fw-semibold d-block mt-2">Développement des compétences</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-handshake"></i> <span class="fw-semibold d-block mt-2">Accompagnement professionnel</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-handshake"></i> <span class="fw-semibold d-block mt-2">Developpement personnel</span></div></div>
     </div>
 
     <!-- Partenaires + Vision -->
@@ -742,7 +833,7 @@
           </div>
           <div class="ms-3">
             <h5 class="fw-bold" style="color: var(--primary-deep);">Siège Social</h5>
-            <p class="mb-0">Abidjan, Côte d'Ivoire</p>
+            <p class="mb-0">Abidjan, Cocody Angré 8ème tranche(la Djibi)  </p>
             <small class="text-muted">Centre principal de formation</small>
           </div>
         </div>
@@ -810,7 +901,7 @@
             <div class="icon-circle bg-warning me-3">
               <i class="fas fa-users" style="color: var(--primary-deep);"></i>
              </div>
-            <h4 class="mb-0">Nos programmes s'adressent à :</h4>
+            <h4 class="mb-0">Nos programmes s'adressent aux :</h4>
           </div>
           <div class="row g-3">
             <div class="col-md-3 col-6">
@@ -843,162 +934,120 @@
       </div>
     </div>
     
-    <!-- Domaines de formation -->
+    <!-- Domaines de formation avec accordéons -->
     <h4 class="mt-5 mb-4">Domaines de formation</h4>
     <div class="row g-4">
       <!-- Ressources Humaines -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-users fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Ressources Humaines</h5>
-        </div>
-      </div>
-      
-      <!-- Gestion administrative du personnel -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-file-signature fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Gestion administrative du personnel</h5>
-        </div>
-      </div>
-      
-      <!-- Recrutement et gestion des talents -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-user-plus fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Recrutement et gestion des talents</h5>
-        </div>
-      </div>
-      
-      <!-- Gestion de la paie -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-coins fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Gestion de la paie</h5>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-formation h-100">
+          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#rhSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fas fa-users fa-2x" style="color: var(--primary-deep);"></i>
+              <h5 class="fw-bold mb-0">Ressources Humaines</h5>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="collapse" id="rhSubdomains">
+            <div class="subdomain-list p-3 pt-0">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion administrative du personnel</li>
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Recrutement et gestion des talents</li>
+                <li class="mb-0"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion de la paie</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       
       <!-- Informatique -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-laptop fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Informatique</h5>
-        </div>
-      </div>
-      
-      <!-- Bureautique avancée -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-file-excel fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Bureautique avancée</h5>
-        </div>
-      </div>
-      
-      <!-- Initiation aux outils numériques -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-mobile-alt fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Initiation aux outils numériques</h5>
-        </div>
-      </div>
-      
-      <!-- Compétences digitales professionnelles -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-digital-tiling fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Compétences digitales professionnelles</h5>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-formation h-100">
+          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#itSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fas fa-laptop fa-2x" style="color: var(--primary-deep);"></i>
+              <h5 class="fw-bold mb-0">Informatique</h5>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="collapse" id="itSubdomains">
+            <div class="subdomain-list p-3 pt-0">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Bureautique avancée</li>
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Initiation aux outils numériques</li>
+                <li class="mb-0"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Compétences digitales professionnelles</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       
       <!-- Gestion commerciale et marketing -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-chart-line fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Gestion commerciale et marketing</h5>
-        </div>
-      </div>
-      
-      <!-- Techniques de vente -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-handshake fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Techniques de vente</h5>
-        </div>
-      </div>
-      
-      <!-- Marketing digital -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-bullhorn fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Marketing digital</h5>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-formation h-100">
+          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#marketingSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fas fa-chart-line fa-2x" style="color: var(--primary-deep);"></i>
+              <h5 class="fw-bold mb-0">Gestion commerciale et marketing</h5>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="collapse" id="marketingSubdomains">
+            <div class="subdomain-list p-3 pt-0">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Techniques de vente</li>
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Marketing digital</li>
+                <li class="mb-0"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Stratégies commerciales</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     
-    <!-- Stratégies commerciales -->
-    <h4 class="mt-5 mb-4">Stratégies commerciales</h4>
+    <!-- Stratégies commerciales (section renommée en Comptabilité & Gestion) -->
+   
     <div class="row g-4">
       <!-- Comptabilité -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-calculator fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Comptabilité</h5>
-        </div>
-      </div>
-      
-      <!-- Comptabilité générale -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-book fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Comptabilité générale</h5>
-        </div>
-      </div>
-      
-      <!-- Gestion financière -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-chart-pie fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Gestion financière</h5>
-        </div>
-      </div>
-      
-      <!-- Analyse financière -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-chart-bar fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Analyse financière</h5>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-formation h-100">
+          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#accountingSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fas fa-calculator fa-2x" style="color: var(--primary-deep);"></i>
+              <h5 class="fw-bold mb-0">Comptabilité</h5>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="collapse" id="accountingSubdomains">
+            <div class="subdomain-list p-3 pt-0">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Comptabilité générale</li>
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion financière</li>
+                <li class="mb-0"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Analyse financière</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       
       <!-- Assistanat de direction -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-user-tie fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Assistanat de direction</h5>
-        </div>
-      </div>
-      
-      <!-- Organisation administrative -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-folder-open fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Organisation administrative</h5>
-        </div>
-      </div>
-      
-      <!-- Gestion des agendas et réunions -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-calendar-alt fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Gestion des agendas et réunions</h5>
-        </div>
-      </div>
-      
-      <!-- Communication professionnelle -->
-      <div class="col-md-4 col-lg-3">
-        <div class="card-formation text-center h-100 py-4">
-          <i class="fas fa-comments fa-2x mb-3" style="color: var(--primary-deep);"></i>
-          <h5 class="fw-bold mb-0">Communication professionnelle</h5>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-formation h-100">
+          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#assistantSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-3">
+              <i class="fas fa-user-tie fa-2x" style="color: var(--primary-deep);"></i>
+              <h5 class="fw-bold mb-0">Assistanat de direction</h5>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="collapse" id="assistantSubdomains">
+            <div class="subdomain-list p-3 pt-0">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Organisation administrative</li>
+                <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion des agendas et réunions</li>
+                <li class="mb-0"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Communication professionnelle</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1029,6 +1078,92 @@
   </div>
 </section>
 
+<style>
+/* Styles pour les cartes de formation */
+.card-formation {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card-formation:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.domain-header {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.domain-header:hover {
+  background-color: rgba(0,0,0,0.02);
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  color: var(--primary-deep);
+}
+
+.domain-header[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.subdomain-list {
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.subdomain-list ul li {
+  color: #4a5568;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.bg-primary-soft {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.icon-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-bleu-custom {
+  background-color: var(--primary-deep, #0a3b5c);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+}
+</style>
+
+<script>
+// Optionnel: Animation au clic pour fermer les autres accordéons
+document.querySelectorAll('.domain-header').forEach(header => {
+  header.addEventListener('click', function(e) {
+    // Évite la propagation pour ne pas fermer si on clique sur l'icône
+    e.stopPropagation();
+    
+    // Si vous voulez un comportement "un seul accordéon ouvert à la fois", décommentez le code ci-dessous
+    /*
+    const currentTarget = this.getAttribute('data-bs-target');
+    const currentCollapse = document.querySelector(currentTarget);
+    
+    document.querySelectorAll('.collapse.show').forEach(collapse => {
+      if (collapse !== currentCollapse) {
+        bootstrap.Collapse.getInstance(collapse)?.hide();
+      }
+    });
+    */
+  });
+});
+</script>
 <!-- ===== PARTENAIRES détaillés ===== -->
 <section id="partenaires" class="py-5 bg-light fade-in-section">
   <div class="container">
@@ -1049,7 +1184,7 @@
         <div class="partner-logo">
           <i class="fas fa-university fa-3x mb-3"></i>
           <h5 class="fw-bold">Toulouse Business School</h5>
-          <p class="text-muted small">Programmes internationaux</p>
+          <p class="text-muted small">Partenariat pour les programmes internationaux</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -1069,8 +1204,8 @@
       <div class="col-md-4">
         <div class="partner-logo">
           <i class="fas fa-lightbulb fa-3x mb-3"></i>
-          <h5 class="fw-bold">Goodeal</h5>
-          <p class="text-muted small">Innovation et entrepreneuriat</p>
+          <h5 class="fw-bold">Goodeals</h5>
+          <p class="text-muted small">Partenariat pour la communication</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -1152,13 +1287,13 @@
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
           </div>
-          <p class="fst-italic">"Grâce à AK Formations, j'ai pu acquérir des compétences en marketing digital qui m'ont permis de décrocher mon premier emploi. Formateurs excellents et programme très complet !"</p>
+          <p class="fst-italic">"Grâce à la formation A.K Formations, j'ai obtenu mon premier emploi en comptabilité après seulement 3 mois"</p>
           <div class="d-flex align-items-center mt-3">
             <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
-              <span class="fw-bold text-white">KA</span>
+              <span class="fw-bold text-white">MA</span>
             </div>
             <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Kouassi Amélie</h6>
+              <h6 class="mb-0 fw-bold">Marie Yao</h6>
               <small class="text-muted">Promotion 2024</small>
             </div>
           </div>
@@ -1174,13 +1309,13 @@
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
           </div>
-          <p class="fst-italic">"La formation en gestion comptable m'a ouvert les portes de plusieurs entreprises. L'accompagnement personnalisé fait vraiment la différence avec AK Formations."</p>
+          <p class="fst-italic">"Le programme de mobilité m'a permis de faire un stage au Canada. Aujourd'hui je lance ma propre entreprise"</p>
           <div class="d-flex align-items-center mt-3">
             <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
-              <span class="fw-bold text-white">TY</span>
+              <span class="fw-bold text-white">KN</span>
             </div>
             <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Traoré Youssouf</h6>
+              <h6 class="mb-0 fw-bold">Koffi N'Guessan</h6>
               <small class="text-muted">Promotion 2024</small>
             </div>
           </div>
@@ -1196,13 +1331,13 @@
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
           </div>
-          <p class="fst-italic">"En tant qu'entrepreneur, la formation m'a donné tous les outils pour structurer mon business. Je recommande vivement à tous les jeunes qui veulent entreprendre !"</p>
+          <p class="fst-italic">"La formation en entrepreneuriat m'a permis de créer mon atelier de couture et de former d'autres jeunes"</p>
           <div class="d-flex align-items-center mt-3">
             <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
-              <span class="fw-bold text-white">DN</span>
+              <span class="fw-bold text-white">DK</span>
             </div>
             <div class="ms-3">
-              <h6 class="mb-0 fw-bold">Diallo N'Guessan</h6>
+              <h6 class="mb-0 fw-bold">David Kouadio</h6>
               <small class="text-muted">Entrepreneur</small>
             </div>
           </div>
@@ -1236,7 +1371,7 @@
             <i class="fas fa-map-pin text-white"></i>
           </div>
           <div class="ms-3">
-            <strong>Siège:</strong> Abidjan, Côte d'Ivoire<br>
+            <strong>Siège:</strong> Abidjan, Cocody Angré 8ème tranche(la Djibi) <br>
             <strong>Bureau opérationnel:</strong> Bouaké, Côte d'Ivoire
           </div>
         </div>
@@ -1320,7 +1455,9 @@
       <div class="col-lg-4">
         <div class="footer-brand d-flex align-items-center mb-3">
           <img src="AK formations.jpeg" alt="AK Formations Logo" class="footer-logo me-3">
-          <h4 class="mb-0">A.K Formations</h4>
+          <span class="brand-text fw-bold" style="color: #0000FF !important;">
+  A.K Formations
+</span>
         </div>
         <p class="text-white-70">Cabinet de formation et d'accompagnement professionnel.</p>
         <p class="text-white-70"><strong class="text-warning">Domaines :</strong><br>
@@ -1354,12 +1491,24 @@
       </div>
       
       <div class="col-lg-2">
-        <h4 class="text-white">Suivez-nous</h4>
-        <div class="d-flex gap-3">
-          <a href="" class="text-white fs-4 hover-warning"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="text-white fs-4 hover-warning"><i class="fab fa-linkedin"></i></a>
-          <a href="0594354096" class="text-white fs-4 hover-warning"><i class="fab fa-whatsapp"></i></a>
-        </div>
+  <h4 class="text-white">Suivez-nous</h4>
+
+  <div class="d-flex gap-3">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/a.kconsultingetExpertise" target="_blank"
+       class="social-icon text-white fs-4">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/17179824529" target="_blank"
+       class="social-icon text-white fs-4">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+  </div>
+</div>
       </div>
     </div>
     
