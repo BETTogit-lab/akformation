@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>A.K Formations · Former les talents, construire les leaders de demain</title>
   
   <!-- Favicon (logo dans l'onglet) -->
@@ -17,11 +17,11 @@
     * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary-deep: #0a4b7a;        /* bleu profond principal (couleur du logo) */
-      --primary-medium: #1f6aa5;      /* bleu intermédiaire pour hover/accents */
-      --primary-soft: #d9ebf7;        /* bleu très clair (fond / badges) */
-      --primary-bg-light: #f2f9ff;     /* variante fond clair */
-      --accent-gold: #eab308;          /* touche secondaire (or) */
+      --primary-deep: #0a4b7a;
+      --primary-medium: #1f6aa5;
+      --primary-soft: #d9ebf7;
+      --primary-bg-light: #f2f9ff;
+      --accent-gold: #eab308;
       --gray-text: #1e2f40;
       --gray-mid: #4b5b6b;
       --border-light: #c2d9ec;
@@ -33,11 +33,13 @@
       color: var(--gray-text);
       background-color: #ffffff;
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     h1, h2, h3, h4, .h1, .h2, .h3 { font-weight: 700; color: #0c2c42; }
 
-    /* ===== NAVBAR ===== */
+    /* ===== NAVBAR RESPONSIVE ===== */
     .navbar {
       background: rgba(255,255,255,0.98) !important;
       backdrop-filter: blur(6px);
@@ -46,20 +48,25 @@
       z-index: 1030;
     }
     
-    /* Style du logo dans la navbar */
     .navbar-brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
       padding: 0;
     }
     
     .logo-img {
-      height: 60px;
+      height: 50px;
       width: auto;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(10,75,122,0.2);
       transition: var(--transition);
+    }
+    
+    @media (min-width: 768px) {
+      .logo-img {
+        height: 60px;
+      }
     }
     
     .logo-img:hover {
@@ -69,24 +76,47 @@
     
     .brand-text {
       font-weight: 800;
-      font-size: 1.8rem;
-      color: #000000 !important;
+      font-size: 1.3rem;
+      color: #0000FF !important;
       letter-spacing: -0.02em;
     }
+    
+    @media (min-width: 768px) {
+      .brand-text {
+        font-size: 1.8rem;
+      }
+    }
+    
     .brand-text span { 
       color: #000000 !important; 
       font-weight: 800;
+    }
+    
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 2px var(--primary-deep);
     }
     
     .nav-link {
       font-weight: 600;
       color: #1f3a57 !important;
       margin: 0 0.15rem;
-      padding: 0.6rem 1.2rem !important;
+      padding: 0.6rem 1rem !important;
       border-radius: 40px;
       transition: var(--transition);
       position: relative;
     }
+    
+    @media (min-width: 992px) {
+      .nav-link {
+        padding: 0.6rem 1.2rem !important;
+      }
+    }
+    
     .nav-link::after {
       content: '';
       position: absolute;
@@ -99,73 +129,120 @@
       transition: width 0.3s ease;
       border-radius: 3px;
     }
+    
     .nav-link:hover::after,
     .nav-link.active::after {
       width: 30px;
     }
+    
     .nav-link:hover,
     .nav-link.active {
       background: var(--primary-soft);
       color: var(--primary-deep) !important;
     }
 
-    /* ===== BOUTONS ===== */
+    /* ===== BOUTONS RESPONSIVE ===== */
+    .btn-primary-custom,
+    .btn-outline-custom,
+    .btn-gold-custom {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    @media (min-width: 768px) {
+      .btn-primary-custom,
+      .btn-outline-custom,
+      .btn-gold-custom {
+        padding: 0.7rem 2.1rem;
+        font-size: 1rem;
+      }
+    }
+    
     .btn-primary-custom {
       background-color: var(--primary-deep);
       border: 1px solid var(--primary-deep);
       color: white;
       font-weight: 600;
-      padding: 0.7rem 2.1rem;
       border-radius: 60px;
       transition: var(--transition);
       box-shadow: 0 4px 10px rgba(10,75,122,0.2);
     }
+    
     .btn-primary-custom:hover {
       background-color: #0f3757;
       border-color: #0f3757;
       transform: translateY(-2px);
       box-shadow: 0 10px 18px rgba(10,75,122,0.25);
     }
+    
     .btn-outline-custom {
       background: transparent;
       border: 1.5px solid var(--primary-deep);
       color: var(--primary-deep);
       font-weight: 600;
-      padding: 0.7rem 2.1rem;
       border-radius: 60px;
       transition: var(--transition);
     }
+    
     .btn-outline-custom:hover {
       background: var(--primary-deep);
       color: white;
       transform: translateY(-2px);
       box-shadow: 0 8px 16px rgba(10,75,122,0.15);
     }
+    
     .btn-gold-custom {
       background-color: var(--accent-gold);
       border: 1px solid var(--accent-gold);
       color: var(--primary-deep);
       font-weight: 700;
-      padding: 0.7rem 2.1rem;
       border-radius: 60px;
       transition: var(--transition);
       box-shadow: 0 4px 10px rgba(234, 179, 8, 0.3);
     }
+    
     .btn-gold-custom:hover {
       background-color: #d4a70e;
       border-color: #d4a70e;
       transform: translateY(-2px);
       box-shadow: 0 10px 18px rgba(234, 179, 8, 0.4);
     }
+    
+    .btn-outline-light {
+      border: 1.5px solid white;
+      color: white;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
+      transition: var(--transition);
+      background: transparent;
+    }
+    
+    @media (min-width: 768px) {
+      .btn-outline-light {
+        padding: 0.7rem 2.1rem;
+      }
+    }
+    
+    .btn-outline-light:hover {
+      background: white;
+      color: var(--primary-deep);
+    }
 
-    /* ===== HERO SECTION AVEC CAROUSEL ===== */
+    /* ===== HERO SECTION RESPONSIVE ===== */
     .hero-section {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
-      padding: 6rem 0;
+      padding: 5rem 0;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-section {
+        padding: 6rem 0;
+      }
     }
     
     #heroCarousel {
@@ -189,7 +266,6 @@
       background-position: center;
     }
     
-    /* Overlay bleu sur le carousel (couleur du logo) */
     #heroCarousel::after {
       content: '';
       position: absolute;
@@ -204,222 +280,328 @@
     
     .carousel-indicators {
       z-index: 3;
-      bottom: 20px;
+      bottom: 15px;
+    }
+    
+    @media (min-width: 768px) {
+      .carousel-indicators {
+        bottom: 20px;
+      }
     }
     
     .carousel-indicators button {
-      width: 12px !important;
-      height: 12px !important;
+      width: 10px !important;
+      height: 10px !important;
       border-radius: 50% !important;
-      margin: 0 5px !important;
-      border: none !important;
-      transition: all 0.3s ease;
+      margin: 0 4px !important;
     }
     
-    .carousel-indicators button.active {
-      background-color: var(--accent-gold) !important;
-      transform: scale(1.2);
+    @media (min-width: 768px) {
+      .carousel-indicators button {
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0 5px !important;
+      }
     }
     
-    .carousel-indicators button:not(.active) {
-      background-color: rgba(255,255,255,0.5) !important;
-    }
-    
-    .carousel-indicators button:hover {
-      background-color: white !important;
-    }
-
-    /* ===== CONTENU HERO ===== */
     .hero-content {
       position: relative;
       z-index: 2;
+      width: 100%;
     }
     
     .hero-content .content-wrapper {
       background: rgba(10, 75, 122, 0.9);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(234, 179, 8, 0.3);
-      border-radius: 2rem;
-      padding: 2.5rem;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-content .content-wrapper {
+        padding: 2.5rem;
+        border-radius: 2rem;
+      }
     }
     
     .hero-title {
-      font-size: 3.1rem;
+      font-size: 1.8rem;
       font-weight: 800;
       line-height: 1.2;
       color: white;
     }
     
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .hero-title {
+        font-size: 3.1rem;
+      }
+    }
+    
     .hero-sub {
-      font-size: 1.2rem;
+      font-size: 0.95rem;
       color: rgba(255,255,255,0.9);
     }
     
-    .text-white-90 { color: rgba(255,255,255,0.9); }
-    .text-white-80 { color: rgba(255,255,255,0.8); }
+    @media (min-width: 768px) {
+      .hero-sub {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .hero-sub {
+        font-size: 1.2rem;
+      }
+    }
     
     .stats-grid {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(5px);
       border: 1px solid var(--accent-gold);
       border-radius: 1.5rem;
-      padding: 1.5rem;
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .stats-grid {
+        padding: 1.5rem;
+        margin-top: 0;
+      }
     }
     
     .stat-item {
       text-align: center;
-      padding: 1rem;
+      padding: 0.75rem;
       background: white;
       border-radius: 1rem;
       box-shadow: 0 5px 15px rgba(10,75,122,0.08);
     }
     
+    @media (min-width: 768px) {
+      .stat-item {
+        padding: 1rem;
+      }
+    }
+    
     .stat-number {
-      font-size: 2.2rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--primary-deep);
       line-height: 1;
     }
     
+    @media (min-width: 768px) {
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .stat-number {
+        font-size: 2.2rem;
+      }
+    }
+    
     .stat-label {
       color: var(--gray-text);
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
+    }
+    
+    @media (min-width: 768px) {
+      .stat-label {
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .stat-label {
+        font-size: 0.9rem;
+      }
     }
 
-    /* ===== CARD STYLES ===== */
+    /* ===== CARD STYLES RESPONSIVE ===== */
     .card-formation, .card-valeur {
       background: white;
       border: 1px solid #e2effa;
-      border-radius: 32px;
-      padding: 2rem 1.6rem;
+      border-radius: 24px;
+      padding: 1.5rem;
       box-shadow: 0 6px 20px rgba(10,75,122,0.04);
       transition: var(--transition);
       height: 100%;
     }
+    
+    @media (min-width: 768px) {
+      .card-formation, .card-valeur {
+        padding: 2rem 1.6rem;
+        border-radius: 32px;
+      }
+    }
+    
     .card-formation:hover, .card-valeur:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       box-shadow: 0 25px 40px -10px rgba(10,75,122,0.18);
       border-color: var(--primary-medium);
     }
-    .card-formation i, .card-valeur i {
-      font-size: 2.5rem;
-      color: var(--primary-deep);
-      margin-bottom: 1.2rem;
+    
+    @media (min-width: 768px) {
+      .card-formation:hover, .card-valeur:hover {
+        transform: translateY(-8px);
+      }
     }
+    
+    .card-formation i, .card-valeur i {
+      font-size: 2rem;
+      color: var(--primary-deep);
+      margin-bottom: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .card-formation i, .card-valeur i {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+      }
+    }
+    
     .badge-bleu-custom {
       background: var(--primary-soft);
       color: var(--primary-deep);
       font-weight: 600;
-      padding: 0.4rem 1.5rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 40px;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      display: inline-block;
     }
+    
+    @media (min-width: 768px) {
+      .badge-bleu-custom {
+        padding: 0.4rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+    
     .section-title {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-deep);
       position: relative;
       display: inline-block;
     }
+    
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+    
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       left: 0;
-      width: 80px;
-      height: 4px;
+      width: 60px;
+      height: 3px;
       background: var(--accent-gold);
       border-radius: 2px;
     }
+    
+    @media (min-width: 768px) {
+      .section-title::after {
+        bottom: -10px;
+        width: 80px;
+        height: 4px;
+      }
+    }
+    
     .section-subtitle {
       color: var(--primary-deep);
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       background: rgba(10,75,122,0.04);
       display: inline-block;
-      padding: 0.2rem 1.2rem;
+      padding: 0.2rem 1rem;
       border-radius: 40px;
     }
-
-    /* ===== PILL PARTENAIRE ===== */
-    .partner-pill {
-      background: white;
-      border: 1px solid var(--border-light);
-      padding: 0.5rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: var(--primary-deep);
-      transition: 0.15s;
-      display: inline-block;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-    .partner-pill:hover {
-      background: var(--primary-soft);
-      border-color: var(--primary-deep);
-      transform: scale(1.05);
+    
+    @media (min-width: 768px) {
+      .section-subtitle {
+        font-size: 0.85rem;
+        padding: 0.2rem 1.2rem;
+      }
     }
 
-    /* ===== PARTNER LOGO ===== */
-    .partner-logo {
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: var(--transition);
-      height: 100%;
-      border: 1px solid var(--border-light);
+    /* ===== SECTION SPACING RESPONSIVE ===== */
+    section {
+      padding: 3rem 0;
     }
-    .partner-logo:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(10,75,122,0.15);
-      border-color: var(--primary-deep);
+    
+    @media (min-width: 768px) {
+      section {
+        padding: 4rem 0;
+      }
     }
-    .partner-logo i {
-      color: var(--primary-deep);
-    }
-    .partner-logo h5 {
-      color: var(--primary-deep);
+    
+    @media (min-width: 992px) {
+      section {
+        padding: 5rem 0;
+      }
     }
 
-    /* ===== TESTIMONIAL CARD ===== */
-    .testimonial-card {
-      background: white;
-      border-radius: 30px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(10,75,122,0.05);
-      border: 1px solid #e6f0fa;
-      transition: var(--transition);
-    }
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(10,75,122,0.1);
-    }
-
-    /* ===== FORMULAIRE ===== */
+    /* ===== FORMULAIRE RESPONSIVE ===== */
     .form-control, .form-select {
       border-radius: 60px;
-      padding: 0.9rem 1.8rem;
+      padding: 0.7rem 1.5rem;
       border: 1px solid #d4e2f0;
       background: #fbfeff;
       transition: var(--transition);
+      font-size: 0.9rem;
     }
+    
+    @media (min-width: 768px) {
+      .form-control, .form-select {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+      }
+    }
+    
     .form-control:focus, .form-select:focus {
       border-color: var(--primary-deep);
       box-shadow: 0 0 0 4px rgba(10,75,122,0.1);
     }
 
-    /* ===== MESSAGES DE CONFIRMATION ===== */
+    /* ===== ALERT MESSAGES ===== */
     .alert {
-      padding: 1rem 1.5rem;
+      padding: 0.8rem 1.2rem;
       border-radius: 60px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       border: none;
       font-weight: 500;
       animation: slideDown 0.5s ease;
+      font-size: 0.85rem;
+    }
+    
+    @media (min-width: 768px) {
+      .alert {
+        padding: 1rem 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
     }
 
     @keyframes slideDown {
@@ -433,192 +615,303 @@
       }
     }
 
-    .alert-success {
-      background-color: #d4edda;
-      color: #155724;
-      border-left: 6px solid #28a745;
-      box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
-    }
-
-    .alert-danger {
-      background-color: #f8d7da;
-      color: #721c24;
-      border-left: 6px solid #dc3545;
-      box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
-    }
-
-    .d-none {
-      display: none !important;
-    }
-
-    /* ===== FOOTER ===== */
+    /* ===== FOOTER RESPONSIVE ===== */
     footer {
       background: var(--primary-deep);
       color: #bed3e8;
+      padding: 2rem 0 1rem;
     }
+    
+    @media (min-width: 768px) {
+      footer {
+        padding: 3rem 0 1.5rem;
+      }
+    }
+    
     footer a { color: #bed3e8; text-decoration: none; transition: 0.1s; }
     footer a:hover { color: white; }
     
-    /* Logo dans le footer */
     .footer-logo {
-      height: 70px;
+      height: 50px;
       width: auto;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       border: 2px solid var(--accent-gold);
+    }
+    
+    @media (min-width: 768px) {
+      .footer-logo {
+        height: 70px;
+        border-radius: 12px;
+      }
     }
     
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
     
     .footer-brand h4 {
       color: #000000 !important;
       font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-brand h4 {
+        font-size: 1.5rem;
+      }
     }
 
-    /* ===== VISION BORDER ===== */
-    .border-start-blue {
-      border-left: 6px solid var(--primary-deep) !important;
+    /* ===== RESPONSIVE TEXT ALIGNMENT ===== */
+    @media (max-width: 767px) {
+      section .container,
+      section .row,
+      section [class*="col-"] {
+        text-align: center;
+      }
+      
+      section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .d-flex.align-items-center {
+        justify-content: center;
+      }
+      
+      .card-formation, .testimonial-card, .partner-logo {
+        text-align: center;
+      }
+      
+      .icon-circle {
+        margin: 0 auto 0.5rem auto;
+      }
+      
+      .ms-3, .me-3 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      
+      .border-start-blue {
+        border-left: none !important;
+        border-top: 6px solid var(--primary-deep) !important;
+      }
+      
+      .vision-highlight {
+        text-align: center;
+      }
     }
 
-    /* ===== ANIMATIONS ===== */
+    /* ===== PARTNER LOGO ===== */
+    .partner-logo {
+      background: white;
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      height: 100%;
+      border: 1px solid var(--border-light);
+    }
+    
+    @media (min-width: 768px) {
+      .partner-logo {
+        padding: 1.5rem;
+      }
+    }
+    
+    .partner-logo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(10,75,122,0.15);
+      border-color: var(--primary-deep);
+    }
+    
+    .partner-logo i {
+      color: var(--primary-deep);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .partner-logo i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    .partner-logo h5 {
+      color: var(--primary-deep);
+      font-size: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .partner-logo h5 {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ===== TESTIMONIAL CARD ===== */
+    .testimonial-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(10,75,122,0.05);
+      border: 1px solid #e6f0fa;
+      transition: var(--transition);
+    }
+    
+    @media (min-width: 768px) {
+      .testimonial-card {
+        padding: 2rem;
+        border-radius: 30px;
+      }
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(10,75,122,0.1);
+    }
+
+    /* ===== ICON CIRCLE ===== */
+    .icon-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ===== VISION HIGHLIGHT ===== */
+    .vision-highlight {
+      background: linear-gradient(145deg, #ffffff, #f0f7ff);
+      border-left: 6px solid var(--accent-gold);
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .vision-highlight {
+        padding: 2rem;
+        border-radius: 24px;
+      }
+    }
+
+    /* ===== SCROLLING TEXT ===== */
+    .scrolling-text {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    
+    .scrolling-content {
+      display: inline-block;
+      animation: scrollText 20s linear infinite;
+      white-space: nowrap;
+    }
+    
+    .scrolling-content span {
+      display: inline-block;
+      color: white;
+      font-size: 0.85rem;
+      padding-right: 50px;
+    }
+    
+    @media (min-width: 768px) {
+      .scrolling-content span {
+        font-size: 1rem;
+      }
+    }
+    
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .scrolling-text:hover .scrolling-content {
+      animation-play-state: paused;
+    }
+    
+    @media (max-width: 768px) {
+      .scrolling-content {
+        animation: scrollText 30s linear infinite;
+      }
+    }
+
+    /* ===== FADE IN ANIMATION ===== */
     .fade-in-section {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+    
     .fade-in-section.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ===== SECTION À PROPOS ===== */
+    /* ===== HISTORY & MISSION CARDS ===== */
     .history-card, .mission-card {
       position: relative;
       overflow: hidden;
     }
+    
     .history-card::before, .mission-card::before {
       content: '';
       position: absolute;
       top: -20px;
       right: -20px;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       background: rgba(234, 179, 8, 0.1);
       border-radius: 50%;
     }
-    .icon-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-    .vision-highlight {
-      background: linear-gradient(145deg, #ffffff, #f0f7ff);
-      border-left: 6px solid var(--accent-gold);
-      padding: 2rem;
-      border-radius: 24px;
+    
+    @media (min-width: 768px) {
+      .history-card::before, .mission-card::before {
+        width: 100px;
+        height: 100px;
+      }
     }
 
-    /* Style pour le texte noir du logo */
-    .navbar-brand .brand-text {
-      color: #000000 !important;
+    /* ===== UTILITY CLASSES ===== */
+    .bg-primary-soft {
+      background-color: rgba(10,75,122,0.05);
     }
-
-    /* ===== ALIGNEMENT À DROITE SUR MOBILE ===== */
-@media (max-width: 768px) {
-  /* Aligner le texte des sections à droite */
-  section .container,
-  section .row,
-  section [class*="col-"] {
-    text-align: right;
-  }
-  
-  /* Ajuster les titres pour rester lisibles */
-  section .section-title::after {
-    left: auto;
-    right: 0;
-  }
-  
-  /* Inverser les flexbox pour garder une cohérence visuelle */
-  section .d-flex {
-    justify-content: flex-end;
-  }
-  
-  /* Ajuster les marges pour les éléments avec icônes */
-  section .me-2,
-  section .me-3,
-  section .me-auto {
-    margin-right: 0 !important;
-    margin-left: 0.5rem !important;
-  }
-  
-  /* Aligner les badges à droite */
-  section .badge-bleu-custom,
-  section .badge {
-    text-align: right;
-  }
-  
-  /* Garder les cartes avec un texte centré ou aligné selon le design */
-  section .card-formation,
-  section .testimonial-card,
-  section .partner-logo {
-    text-align: right;
-  }
-  
-  /* Ajuster les listes */
-  section ul,
-  section ol {
-    padding-right: 1rem;
-    padding-left: 0;
-  }
-  
-  /* Inverser l'ordre des éléments flex dans la navbar et autres composants */
-  section .navbar-collapse {
-    text-align: right;
-  }
-  
-  /* Pour les formulaires */
-  section .form-control,
-  section .form-select,
-  section .btn {
-    text-align: right;
-  }
-  
-  /* Pour les icônes dans les boutons */
-  section .btn i {
-    margin-right: 0 !important;
-    margin-left: 0.5rem !important;
-  }
-  
-  /* Pour les éléments avec marge à gauche */
-  section .ms-2,
-  section .ms-3,
-  section .ms-auto {
-    margin-left: 0 !important;
-    margin-right: 0.5rem !important;
-  }
-  
-  /* Pour le footer */
-  footer .container,
-  footer .row,
-  footer [class*="col-"] {
-    text-align: right;
-  }
-  
-  footer .d-flex {
-    justify-content: flex-end;
-  }
-}
-
-
-
+    
+    .text-white-90 { color: rgba(255,255,255,0.9); }
+    .text-white-80 { color: rgba(255,255,255,0.8); }
+    .text-white-70 { color: rgba(255,255,255,0.7); }
+    
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -628,11 +921,9 @@
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="AK formations.jpeg" alt="AK Formations Logo" class="logo-img">
-   <span class="brand-text fw-bold" style="color: #0000FF !important;">
-  A.K Formations
-</span>
-</span>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="brand-text fw-bold">A.K Formations</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menu de navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -650,7 +941,6 @@
 
 <!-- ===== ACCUEIL AVEC CAROUSEL ===== -->
 <section id="accueil" class="hero-section">
-  <!-- Carousel en arrière-plan -->
   <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
     <div class="carousel-inner h-100">
       <div class="carousel-item active h-100">
@@ -660,24 +950,21 @@
         <div style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
       </div>
     </div>
-    
-    <!-- Indicateurs du carousel -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
     </div>
   </div>
   
-  <!-- Contenu superposé -->
   <div class="container position-relative hero-content">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-4">
       <div class="col-lg-8">
         <div class="content-wrapper">
-          <span class="badge-bleu-custom mb-4 bg-warning text-dark border-0"><i class="fas fa-map-marker-alt me-2"></i>Abidjan • Bouaké</span>
+          <span class="badge-bleu-custom mb-3"><i class="fas fa-map-marker-alt me-2"></i>Abidjan • Bouaké</span>
           <h1 class="hero-title">Former les talents, <span class="text-warning">construire les leaders</span> de demain</h1>
-          <p class="hero-sub my-4">AK Formations est un cabinet de formation basé en Côte d'Ivoire, spécialisé dans la qualification professionnelle, le renforcement de capacités et l'insertion professionnelle des jeunes talents et diplômés.</p>
-          <p class="mb-4 text-white-80 fw-medium">Créé à Abidjan, le cabinet dispose également d'un bureau opérationnel à Bouaké, afin de rapprocher ses services des jeunes talents et professionnels de l'intérieur du pays. Nous accompagnons les talents à développer leurs compétences, accéder à des opportunités professionnelles et construire des projets solides.</p>
-          <div class="d-flex flex-wrap gap-3">
+          <p class="hero-sub my-3">AK Formations est un cabinet de formation basé en Côte d'Ivoire, spécialisé dans la qualification professionnelle, le renforcement de capacités et l'insertion professionnelle des jeunes talents et diplômés.</p>
+          <p class="mb-3 text-white-80 fw-medium">Créé à Abidjan, le cabinet dispose également d'un bureau opérationnel à Bouaké, afin de rapprocher ses services des jeunes talents et professionnels de l'intérieur du pays.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
             <a href="#formations" class="btn btn-gold-custom"><i class="fas fa-graduation-cap me-2"></i>Découvrir nos formations</a>
             <a href="#contact" class="btn btn-outline-light"><i class="fas fa-envelope me-2"></i>Nous contacter</a>
           </div>
@@ -686,7 +973,7 @@
       
       <div class="col-lg-4">
         <div class="stats-grid">
-          <div class="row g-3">
+          <div class="row g-2 g-md-3">
             <div class="col-6">
               <div class="stat-item">
                 <div class="stat-number">150+</div>
@@ -719,18 +1006,18 @@
 </section>
 
 <!-- ===== QUI SOMMES-NOUS (intro) ===== -->
-<section class="py-5 bg-white">
+<section class="py-4 py-md-5 bg-white">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="card-formation">
-          <div class="d-flex align-items-center mb-3">
+          <div class="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
             <div class="icon-circle" style="background-color: var(--primary-deep);">
               <i class="fas fa-building text-white"></i>
             </div>
-            <h4 class="mb-0 ms-3">Qui sommes-nous ?</h4>
+            <h4 class="mb-0 ms-md-3 mt-2 mt-md-0">Qui sommes-nous ?</h4>
           </div>
-          <p><strong>A.K Formations</strong> est une Société à Responsabilité Limitée (SARL) créée </strong> à Abidjan, Côte d'Ivoire. Le cabinet intervient dans le domaine de la formation professionnelle, de l'accompagnement des jeunes talents et du développement des compétences.</p>
+          <p><strong>A.K Formations</strong> est une Société à Responsabilité Limitée (SARL) créée à Abidjan, Côte d'Ivoire. Le cabinet intervient dans le domaine de la formation professionnelle, de l'accompagnement des jeunes talents et du développement des compétences.</p>
           <p class="mt-3">Afin d'assurer une meilleure proximité avec ses bénéficiaires, A.K Formations dispose également d'un bureau opérationnel à <strong>Bouaké</strong>, qui permet de déployer ses activités de formation et d'accompagnement dans la région du centre du pays.</p>
           <div class="mt-4 p-3 bg-primary-soft rounded-4">
             <p class="mb-0 fw-bold" style="color: var(--primary-deep);"><i class="fas fa-quote-right me-2 text-warning"></i>Notre mission est de former, accompagner et autonomiser les jeunes talents et diplômés afin de faciliter leur insertion dans le monde professionnel.</p>
@@ -740,8 +1027,8 @@
     </div>
 
     <!-- Domaines d'intervention -->
-    <h3 class="mt-5 mb-4">Nos domaines d'intervention</h3>
-    <div class="row g-4">
+    <h3 class="mt-4 mt-md-5 mb-3 text-center text-md-start">Nos domaines d'intervention</h3>
+    <div class="row g-3 g-md-4">
       <div class="col-md-4">
         <div class="card-formation h-100">
           <i class="fas fa-graduation-cap"></i>
@@ -766,55 +1053,51 @@
     </div>
 
     <!-- Formations principales -->
-    <h3 class="mt-5 mb-4">Nos formations principales</h3>
-    <p class="mb-4">A.K Formations propose des formations de qualification professionnelle et de renforcement de capacités dans plusieurs domaines stratégiques :</p>
-    <div class="row g-4">
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-users"></i> <span class="fw-semibold d-block mt-2">Ressources Humaines</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-laptop"></i> <span class="fw-semibold d-block mt-2">Informatique</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-chart-line"></i> <span class="fw-semibold d-block mt-2">Gestion Commerciale & Marketing</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-calculator"></i> <span class="fw-semibold d-block mt-2">Comptabilité</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-user-tie"></i> <span class="fw-semibold d-block mt-2">Assistanat de Direction</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-rocket"></i> <span class="fw-semibold d-block mt-2">Entrepreneuriat et Gestion de projet</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-brain"></i> <span class="fw-semibold d-block mt-2">Développement des compétences</span></div></div>
-      <div class="col-md-3 col-6"><div class="card-formation text-center py-4"><i class="fas fa-handshake"></i> <span class="fw-semibold d-block mt-2">Developpement personnel</span></div></div>
-    </div>
-
-    <!-- Partenaires + Vision -->
-    
+    <h3 class="mt-4 mt-md-5 mb-3 text-center text-md-start">Nos formations principales</h3>
+    <p class="mb-3 mb-md-4 text-center text-md-start">A.K Formations propose des formations de qualification professionnelle et de renforcement de capacités dans plusieurs domaines stratégiques :</p>
+    <div class="row g-3 g-md-4">
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-users"></i> <span class="fw-semibold d-block mt-2">Ressources Humaines</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-laptop"></i> <span class="fw-semibold d-block mt-2">Informatique</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-chart-line"></i> <span class="fw-semibold d-block mt-2">Gestion Commerciale & Marketing</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-calculator"></i> <span class="fw-semibold d-block mt-2">Comptabilité</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-user-tie"></i> <span class="fw-semibold d-block mt-2">Assistanat de Direction</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-rocket"></i> <span class="fw-semibold d-block mt-2">Entrepreneuriat et Gestion de projet</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-brain"></i> <span class="fw-semibold d-block mt-2">Développement des compétences</span></div></div>
+      <div class="col-md-3 col-6"><div class="card-formation text-center py-3 py-md-4"><i class="fas fa-handshake"></i> <span class="fw-semibold d-block mt-2">Développement personnel</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- ===== À PROPOS ===== -->
-<section id="a-propos" class="py-5 bg-light fade-in-section">
-  <div class="container py-4">
-    <span class="section-subtitle">Qui nous sommes</span>
-    <h2 class="section-title">À propos d'AK Formations</h2>
+<section id="a-propos" class="py-4 py-md-5 bg-light fade-in-section">
+  <div class="container py-2 py-md-4">
+    <div class="text-center text-md-start">
+      <span class="section-subtitle">Qui nous sommes</span>
+      <h2 class="section-title">À propos d'AK Formations</h2>
+    </div>
     
-    <div class="row g-4 mt-4">
-      <!-- Histoire -->
+    <div class="row g-3 g-md-4 mt-2 mt-md-4">
       <div class="col-md-6">
         <div class="card-formation history-card h-100">
-          <div class="d-flex align-items-center mb-3">
-            <div class="icon-circle bg-warning me-3">
+          <div class="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
+            <div class="icon-circle bg-warning me-md-3 mb-2 mb-md-0">
               <i class="fas fa-clock" style="color: var(--primary-deep);"></i>
             </div>
             <h4 class="mb-0">Notre histoire</h4>
           </div>
           <p><strong>Créée en août 2025 à Abidjan</strong>, A.K Formations est née de la volonté de contribuer activement à l'autonomisation des jeunes et au développement des compétences professionnelles.</p>
           <p>Aujourd'hui, le cabinet développe ses activités à partir de son siège à Abidjan et de son bureau opérationnel à Bouaké, afin d'élargir l'accès à la formation et à l'accompagnement professionnel dans tout le pays.</p>
-          <div class="mt-3 d-flex gap-3">
+          <div class="mt-3 d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
             <span class="badge" style="background-color: var(--primary-deep); color: white;"><i class="fas fa-calendar-alt me-1"></i>Création: 2025</span>
             <span class="badge bg-warning text-dark"><i class="fas fa-map-marker-alt me-1"></i>2 sites</span>
           </div>
         </div>
       </div>
       
-      <!-- Mission -->
       <div class="col-md-6">
         <div class="card-formation mission-card h-100" style="background-color: var(--primary-deep); color: white;">
-          <div class="d-flex align-items-center mb-3">
-            <div class="icon-circle bg-warning me-3">
+          <div class="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
+            <div class="icon-circle bg-warning me-md-3 mb-2 mb-md-0">
               <i class="fas fa-flag" style="color: var(--primary-deep);"></i>
             </div>
             <h4 class="mb-0 text-white">Notre mission</h4>
@@ -825,25 +1108,25 @@
     </div>
 
     <!-- Implantations -->
-    <div class="row g-4 mt-4">
+    <div class="row g-3 g-md-4 mt-2 mt-md-4">
       <div class="col-md-6">
-        <div class="d-flex align-items-center p-4 bg-white rounded-4 shadow-sm card-hover">
+        <div class="d-flex align-items-center p-3 p-md-4 bg-white rounded-4 shadow-sm flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle" style="background-color: var(--primary-deep);">
             <i class="fas fa-map-marker-alt text-white"></i>
           </div>
-          <div class="ms-3">
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
             <h5 class="fw-bold" style="color: var(--primary-deep);">Siège Social</h5>
-            <p class="mb-0">Abidjan, Cocody Angré 8ème tranche(la Djibi)  </p>
+            <p class="mb-0">Abidjan, Cocody Angré 8ème tranche (la Djibi)</p>
             <small class="text-muted">Centre principal de formation</small>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="d-flex align-items-center p-4 bg-white rounded-4 shadow-sm card-hover">
+        <div class="d-flex align-items-center p-3 p-md-4 bg-white rounded-4 shadow-sm flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle bg-warning">
             <i class="fas fa-building" style="color: var(--primary-deep);"></i>
           </div>
-          <div class="ms-3">
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
             <h5 class="fw-bold" style="color: var(--primary-deep);">Bureau Opérationnel</h5>
             <p class="mb-0">Bouaké, Côte d'Ivoire</p>
             <small class="text-muted">Proximité avec l'intérieur du pays</small>
@@ -853,8 +1136,8 @@
     </div>
     
     <!-- Valeurs -->
-    <h3 class="mt-5 mb-4">Nos valeurs</h3>
-    <div class="row g-4">
+    <h3 class="mt-4 mt-md-5 mb-3 text-center text-md-start">Nos valeurs</h3>
+    <div class="row g-3 g-md-4">
       <div class="col-md-3 col-6">
         <div class="card-valeur text-center">
           <i class="fas fa-star"></i>
@@ -888,67 +1171,68 @@
 </section>
 
 <!-- ===== NOS FORMATIONS ===== -->
-<section id="formations" class="py-5 fade-in-section">
+<section id="formations" class="py-4 py-md-5 fade-in-section">
   <div class="container">
-    <span class="section-subtitle">Programmes adaptés</span>
-    <h2 class="section-title">Nos formations</h2>
+    <div class="text-center text-md-start">
+      <span class="section-subtitle">Programmes adaptés</span>
+      <h2 class="section-title">Nos formations</h2>
+    </div>
     
     <!-- Public cible -->
-    <div class="row mt-4">
+    <div class="row mt-3 mt-md-4">
       <div class="col-12">
         <div class="card-formation bg-primary-soft border-0">
-          <div class="d-flex align-items-center mb-3">
-            <div class="icon-circle bg-warning me-3">
+          <div class="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
+            <div class="icon-circle bg-warning me-md-3 mb-2 mb-md-0">
               <i class="fas fa-users" style="color: var(--primary-deep);"></i>
-             </div>
+            </div>
             <h4 class="mb-0">Nos programmes s'adressent aux :</h4>
           </div>
-          <div class="row g-3">
+          <div class="row g-2 g-md-3">
             <div class="col-md-3 col-6">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                 <i class="fas fa-circle text-warning me-2" style="font-size: 0.6rem;"></i>
                 <span class="fw-medium">Étudiants</span>
               </div>
             </div>
             <div class="col-md-3 col-6">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                 <i class="fas fa-circle text-warning me-2" style="font-size: 0.6rem;"></i>
                 <span class="fw-medium">Jeunes diplômés</span>
               </div>
             </div>
             <div class="col-md-3 col-6">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                 <i class="fas fa-circle text-warning me-2" style="font-size: 0.6rem;"></i>
                 <span class="fw-medium">Professionnels</span>
               </div>
             </div>
             <div class="col-md-3 col-6">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                 <i class="fas fa-circle text-warning me-2" style="font-size: 0.6rem;"></i>
                 <span class="fw-medium">Entrepreneurs</span>
               </div>
             </div>
           </div>
-          <p class="mt-4 mb-0 fw-medium" style="color: var(--primary-deep);"><i class="fas fa-quote-right me-2 text-warning"></i>Elles sont conçues pour développer des compétences pratiques directement applicables dans le monde professionnel.</p>
+          <p class="mt-3 mt-md-4 mb-0 fw-medium" style="color: var(--primary-deep);"><i class="fas fa-quote-right me-2 text-warning"></i>Elles sont conçues pour développer des compétences pratiques directement applicables dans le monde professionnel.</p>
         </div>
       </div>
     </div>
     
     <!-- Domaines de formation avec accordéons -->
-    <h4 class="mt-5 mb-4">Domaines de formation</h4>
-    <div class="row g-4">
-      <!-- Ressources Humaines -->
+    <h4 class="mt-4 mt-md-5 mb-3 text-center text-md-start">Domaines de formation</h4>
+    <div class="row g-3 g-md-4">
       <div class="col-md-6 col-lg-4">
         <div class="card-formation h-100">
-          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#rhSubdomains" aria-expanded="false" style="cursor: pointer;">
-            <div class="d-flex align-items-center gap-3">
+          <div class="domain-header d-flex justify-content-between align-items-center p-2 p-md-3" data-bs-toggle="collapse" data-bs-target="#rhSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
               <i class="fas fa-users fa-2x" style="color: var(--primary-deep);"></i>
               <h5 class="fw-bold mb-0">Ressources Humaines</h5>
             </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="collapse" id="rhSubdomains">
-            <div class="subdomain-list p-3 pt-0">
+            <div class="subdomain-list p-2 p-md-3 pt-0">
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion administrative du personnel</li>
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Recrutement et gestion des talents</li>
@@ -959,18 +1243,17 @@
         </div>
       </div>
       
-      <!-- Informatique -->
       <div class="col-md-6 col-lg-4">
         <div class="card-formation h-100">
-          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#itSubdomains" aria-expanded="false" style="cursor: pointer;">
-            <div class="d-flex align-items-center gap-3">
+          <div class="domain-header d-flex justify-content-between align-items-center p-2 p-md-3" data-bs-toggle="collapse" data-bs-target="#itSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
               <i class="fas fa-laptop fa-2x" style="color: var(--primary-deep);"></i>
               <h5 class="fw-bold mb-0">Informatique</h5>
             </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="collapse" id="itSubdomains">
-            <div class="subdomain-list p-3 pt-0">
+            <div class="subdomain-list p-2 p-md-3 pt-0">
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Bureautique avancée</li>
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Initiation aux outils numériques</li>
@@ -981,18 +1264,17 @@
         </div>
       </div>
       
-      <!-- Gestion commerciale et marketing -->
       <div class="col-md-6 col-lg-4">
         <div class="card-formation h-100">
-          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#marketingSubdomains" aria-expanded="false" style="cursor: pointer;">
-            <div class="d-flex align-items-center gap-3">
+          <div class="domain-header d-flex justify-content-between align-items-center p-2 p-md-3" data-bs-toggle="collapse" data-bs-target="#marketingSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
               <i class="fas fa-chart-line fa-2x" style="color: var(--primary-deep);"></i>
               <h5 class="fw-bold mb-0">Gestion commerciale et marketing</h5>
             </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="collapse" id="marketingSubdomains">
-            <div class="subdomain-list p-3 pt-0">
+            <div class="subdomain-list p-2 p-md-3 pt-0">
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Techniques de vente</li>
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Marketing digital</li>
@@ -1004,21 +1286,18 @@
       </div>
     </div>
     
-    <!-- Stratégies commerciales (section renommée en Comptabilité & Gestion) -->
-   
-    <div class="row g-4">
-      <!-- Comptabilité -->
+    <div class="row g-3 g-md-4 mt-2">
       <div class="col-md-6 col-lg-4">
         <div class="card-formation h-100">
-          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#accountingSubdomains" aria-expanded="false" style="cursor: pointer;">
-            <div class="d-flex align-items-center gap-3">
+          <div class="domain-header d-flex justify-content-between align-items-center p-2 p-md-3" data-bs-toggle="collapse" data-bs-target="#accountingSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
               <i class="fas fa-calculator fa-2x" style="color: var(--primary-deep);"></i>
               <h5 class="fw-bold mb-0">Comptabilité</h5>
             </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="collapse" id="accountingSubdomains">
-            <div class="subdomain-list p-3 pt-0">
+            <div class="subdomain-list p-2 p-md-3 pt-0">
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Comptabilité générale</li>
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion financière</li>
@@ -1029,18 +1308,17 @@
         </div>
       </div>
       
-      <!-- Assistanat de direction -->
       <div class="col-md-6 col-lg-4">
         <div class="card-formation h-100">
-          <div class="domain-header d-flex justify-content-between align-items-center p-3" data-bs-toggle="collapse" data-bs-target="#assistantSubdomains" aria-expanded="false" style="cursor: pointer;">
-            <div class="d-flex align-items-center gap-3">
+          <div class="domain-header d-flex justify-content-between align-items-center p-2 p-md-3" data-bs-toggle="collapse" data-bs-target="#assistantSubdomains" aria-expanded="false" style="cursor: pointer;">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
               <i class="fas fa-user-tie fa-2x" style="color: var(--primary-deep);"></i>
               <h5 class="fw-bold mb-0">Assistanat de direction</h5>
             </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="collapse" id="assistantSubdomains">
-            <div class="subdomain-list p-3 pt-0">
+            <div class="subdomain-list p-2 p-md-3 pt-0">
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Organisation administrative</li>
                 <li class="mb-2"><i class="fas fa-circle text-warning me-2" style="font-size: 0.5rem;"></i>Gestion des agendas et réunions</li>
@@ -1053,11 +1331,11 @@
     </div>
     
     <!-- Types de formation -->
-    <h4 class="mt-5 mb-4">Types de formation</h4>
+    <h4 class="mt-4 mt-md-5 mb-3 text-center text-md-start">Types de formation</h4>
     
     <div class="card-formation">
       <ul class="list-unstyled mb-0">
-        <li class="mb-4">
+        <li class="mb-3">
           <span class="fw-bold" style="color: var(--primary-deep);">- Formation de qualification professionnelle</span><br>
           <span class="text-muted">Permet d'acquérir des compétences métier spécifiques.</span>
         </li>
@@ -1068,8 +1346,7 @@
       </ul>
     </div>
     
-    <!-- Badge récapitulatif -->
-    <div class="text-center mt-5">
+    <div class="text-center mt-4 mt-md-5">
       <span class="badge-bleu-custom d-inline-flex align-items-center gap-2">
         <i class="fas fa-info-circle"></i>
         Formation de qualification professionnelle • Renforcement de capacités
@@ -1079,7 +1356,6 @@
 </section>
 
 <style>
-/* Styles pour les cartes de formation */
 .card-formation {
   background: white;
   border-radius: 16px;
@@ -1144,80 +1420,69 @@
 </style>
 
 <script>
-// Optionnel: Animation au clic pour fermer les autres accordéons
 document.querySelectorAll('.domain-header').forEach(header => {
   header.addEventListener('click', function(e) {
-    // Évite la propagation pour ne pas fermer si on clique sur l'icône
     e.stopPropagation();
-    
-    // Si vous voulez un comportement "un seul accordéon ouvert à la fois", décommentez le code ci-dessous
-    /*
-    const currentTarget = this.getAttribute('data-bs-target');
-    const currentCollapse = document.querySelector(currentTarget);
-    
-    document.querySelectorAll('.collapse.show').forEach(collapse => {
-      if (collapse !== currentCollapse) {
-        bootstrap.Collapse.getInstance(collapse)?.hide();
-      }
-    });
-    */
   });
 });
 </script>
+
 <!-- ===== PARTENAIRES détaillés ===== -->
-<section id="partenaires" class="py-5 bg-light fade-in-section">
+<section id="partenaires" class="py-4 py-md-5 bg-light fade-in-section">
   <div class="container">
-    <span class="section-subtitle">Ils nous font confiance</span>
-    <h2 class="section-title">Partenaires académiques & stratégiques</h2>
+    <div class="text-center text-md-start">
+      <span class="section-subtitle">Ils nous font confiance</span>
+      <h2 class="section-title">Partenaires académiques & stratégiques</h2>
+    </div>
     
-    <p class="mt-3">AK Formations développe ses activités en collaboration avec des partenaires académiques et institutionnels.</p>
+    <p class="mt-2 mt-md-3 text-center text-md-start">AK Formations développe ses activités en collaboration avec des partenaires académiques et institutionnels.</p>
     
-    <div class="row g-4 mt-4">
-      <div class="col-md-4">
+    <div class="row g-3 g-md-4 mt-2 mt-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-hand-holding-heart fa-3x mb-3"></i>
+          <i class="fas fa-hand-holding-heart fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">ONG Human Boost</h5>
           <p class="text-muted small">Partenariat pour l'insertion des jeunes</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-university fa-3x mb-3"></i>
+          <i class="fas fa-university fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">Toulouse Business School</h5>
           <p class="text-muted small">Partenariat pour les programmes internationaux</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-briefcase fa-3x mb-3"></i>
+          <i class="fas fa-briefcase fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">ADN Consulting</h5>
           <p class="text-muted small">Expertise en conseil RH</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-chart-line fa-3x mb-3"></i>
+          <i class="fas fa-chart-line fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">IAE Aix-Marseille</h5>
           <p class="text-muted small">Formations en management</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-lightbulb fa-3x mb-3"></i>
+          <i class="fas fa-lightbulb fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">Goodeals</h5>
           <p class="text-muted small">Partenariat pour la communication</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-6">
         <div class="partner-logo">
-          <i class="fas fa-heart fa-3x mb-3"></i>
+          <i class="fas fa-heart fa-2x fa-md-3x mb-2"></i>
           <h5 class="fw-bold">École de Psychologie</h5>
           <p class="text-muted small">Accompagnement psychologique</p>
         </div>
       </div>
     </div>
     
-    <div class="mt-5 p-4 rounded-4 overflow-hidden" style="background-color: var(--primary-deep);">
+    <div class="mt-4 mt-md-5 p-3 p-md-4 rounded-4 overflow-hidden" style="background-color: var(--primary-deep);">
       <div class="scrolling-text">
         <div class="scrolling-content">
           <span>Ces collaborations contribuent à renforcer la qualité des programmes, favoriser les échanges académiques et créer davantage d'opportunités pour les apprenants.</span>
@@ -1228,59 +1493,18 @@ document.querySelectorAll('.domain-header').forEach(header => {
   </div>
 </section>
 
-<style>
-.scrolling-text {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.scrolling-content {
-    display: inline-block;
-    animation: scrollText 20s linear infinite;
-    white-space: nowrap;
-}
-
-.scrolling-content span {
-    display: inline-block;
-    color: white;
-    font-size: 1rem;
-    padding-right: 50px; /* Espace entre les répétitions */
-}
-
-/* Animation de défilement */
-@keyframes scrollText {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Pause au survol */
-.scrolling-text:hover .scrolling-content {
-    animation-play-state: paused;
-}
-
-/* Version mobile plus lente */
-@media (max-width: 768px) {
-    .scrolling-content {
-        animation: scrollText 30s linear infinite;
-    }
-}
-</style>
-
 <!-- ===== TÉMOIGNAGES ===== -->
-<section id="temoignages" class="py-5 fade-in-section">
+<section id="temoignages" class="py-4 py-md-5 fade-in-section">
   <div class="container">
-    <span class="section-subtitle">Témoignages</span>
-    <h2 class="section-title">Ce qu'ils disent de nous</h2>
+    <div class="text-center text-md-start">
+      <span class="section-subtitle">Témoignages</span>
+      <h2 class="section-title">Ce qu'ils disent de nous</h2>
+    </div>
     
-    <div class="row g-4 mt-4">
+    <div class="row g-3 g-md-4 mt-2 mt-md-4">
       <div class="col-md-4">
         <div class="testimonial-card">
-          <div class="mb-3">
+          <div class="mb-2 mb-md-3">
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
@@ -1288,11 +1512,11 @@ document.querySelectorAll('.domain-header').forEach(header => {
             <i class="fas fa-star text-warning"></i>
           </div>
           <p class="fst-italic">"Grâce à la formation A.K Formations, j'ai obtenu mon premier emploi en comptabilité après seulement 3 mois"</p>
-          <div class="d-flex align-items-center mt-3">
-            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
+          <div class="d-flex align-items-center mt-3 justify-content-center justify-content-md-start">
+            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--primary-deep);">
               <span class="fw-bold text-white">MA</span>
             </div>
-            <div class="ms-3">
+            <div class="ms-3 text-center text-md-start">
               <h6 class="mb-0 fw-bold">Marie Yao</h6>
               <small class="text-muted">Promotion 2024</small>
             </div>
@@ -1302,7 +1526,7 @@ document.querySelectorAll('.domain-header').forEach(header => {
       
       <div class="col-md-4">
         <div class="testimonial-card">
-          <div class="mb-3">
+          <div class="mb-2 mb-md-3">
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
@@ -1310,11 +1534,11 @@ document.querySelectorAll('.domain-header').forEach(header => {
             <i class="fas fa-star text-warning"></i>
           </div>
           <p class="fst-italic">"Le programme de mobilité m'a permis de faire un stage au Canada. Aujourd'hui je lance ma propre entreprise"</p>
-          <div class="d-flex align-items-center mt-3">
-            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
+          <div class="d-flex align-items-center mt-3 justify-content-center justify-content-md-start">
+            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--primary-deep);">
               <span class="fw-bold text-white">KN</span>
             </div>
-            <div class="ms-3">
+            <div class="ms-3 text-center text-md-start">
               <h6 class="mb-0 fw-bold">Koffi N'Guessan</h6>
               <small class="text-muted">Promotion 2024</small>
             </div>
@@ -1324,7 +1548,7 @@ document.querySelectorAll('.domain-header').forEach(header => {
       
       <div class="col-md-4">
         <div class="testimonial-card">
-          <div class="mb-3">
+          <div class="mb-2 mb-md-3">
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
             <i class="fas fa-star text-warning"></i>
@@ -1332,11 +1556,11 @@ document.querySelectorAll('.domain-header').forEach(header => {
             <i class="fas fa-star text-warning"></i>
           </div>
           <p class="fst-italic">"La formation en entrepreneuriat m'a permis de créer mon atelier de couture et de former d'autres jeunes"</p>
-          <div class="d-flex align-items-center mt-3">
-            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-deep);">
+          <div class="d-flex align-items-center mt-3 justify-content-center justify-content-md-start">
+            <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background-color: var(--primary-deep);">
               <span class="fw-bold text-white">DK</span>
             </div>
-            <div class="ms-3">
+            <div class="ms-3 text-center text-md-start">
               <h6 class="mb-0 fw-bold">David Kouadio</h6>
               <small class="text-muted">Entrepreneur</small>
             </div>
@@ -1348,61 +1572,62 @@ document.querySelectorAll('.domain-header').forEach(header => {
 </section>
 
 <!-- ===== CONTACT ===== -->
-<section id="contact" class="py-5 bg-light fade-in-section">
+<section id="contact" class="py-4 py-md-5 bg-light fade-in-section">
   <div class="container">
-    <span class="section-subtitle">Écrivez-nous</span>
-    <h2 class="section-title">Parlons de votre projet</h2>
+    <div class="text-center text-md-start">
+      <span class="section-subtitle">Écrivez-nous</span>
+      <h2 class="section-title">Parlons de votre projet</h2>
+    </div>
     
-    <div class="row g-5 align-items-start mt-4">
+    <div class="row g-4 g-md-5 align-items-start mt-2 mt-md-4">
       <div class="col-lg-5">
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-3 mb-md-4 flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle" style="background-color: var(--primary-deep);">
             <i class="fas fa-phone-alt text-white"></i>
           </div>
-          <div class="ms-3">
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
             <strong>Téléphone:</strong><br>
             +225 07 15 41 42 80<br>
             +225 05 64 98 30 55
           </div>
         </div>
         
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-3 mb-md-4 flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle" style="background-color: var(--primary-deep);">
             <i class="fas fa-map-pin text-white"></i>
           </div>
-          <div class="ms-3">
-            <strong>Siège:</strong> Abidjan, Cocody Angré 8ème tranche(la Djibi) <br>
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
+            <strong>Siège:</strong> Abidjan, Cocody Angré 8ème tranche (la Djibi) <br>
             <strong>Bureau opérationnel:</strong> Bouaké, Côte d'Ivoire
           </div>
         </div>
         
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-3 mb-md-4 flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle" style="background-color: var(--primary-deep);">
             <i class="fas fa-envelope text-white"></i>
           </div>
-          <div class="ms-3">
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
             <strong>Email:</strong> contact@akformations.ci
           </div>
         </div>
         
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-3 mb-md-4 flex-wrap justify-content-center justify-content-md-start">
           <div class="icon-circle" style="background-color: var(--primary-deep);">
             <i class="fas fa-clock text-white"></i>
           </div>
-          <div class="ms-3">
+          <div class="ms-md-3 mt-2 mt-md-0 text-center text-md-start">
             <strong>Horaires d'ouverture:</strong><br>
             Lun - Ven : 8h00 - 17h30<br>
             Sam : 8h00 - 14h00
           </div>
         </div>
         
-        <div class="mt-4 p-4 bg-white rounded-4 shadow-sm">
+        <div class="mt-3 mt-md-4 p-3 p-md-4 bg-white rounded-4 shadow-sm text-center text-md-start">
           <p class="fw-medium mb-0"><i class="fas fa-quote-left text-warning me-2"></i>Vous souhaitez obtenir des informations sur nos formations ou nos services ? Notre équipe est à votre disposition.</p>
         </div>
       </div>
       
       <div class="col-lg-7">
-        <!-- Messages de confirmation -->
         <?php if(isset($_GET['success']) && $_GET['success'] == 1): ?>
         <div id="successMessage" class="alert alert-success" role="alert">
           <i class="fas fa-check-circle me-2"></i>
@@ -1417,17 +1642,17 @@ document.querySelectorAll('.domain-header').forEach(header => {
         </div>
         <?php endif; ?>
         
-        <form id="contactForm" class="bg-white p-5 rounded-5 shadow-sm" method="POST" action="send_message.php">
-          <div class="mb-4">
+        <form id="contactForm" class="bg-white p-4 p-md-5 rounded-5 shadow-sm" method="POST" action="send_message.php">
+          <div class="mb-3 mb-md-4">
             <input type="text" name="nom" class="form-control" placeholder="Nom complet" required>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 mb-md-4">
             <input type="email" name="email" class="form-control" placeholder="Email" required>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 mb-md-4">
             <input type="tel" name="telephone" class="form-control" placeholder="Téléphone">
           </div>
-          <div class="mb-4">
+          <div class="mb-3 mb-md-4">
             <select name="sujet" class="form-select" required>
               <option value="">Choisir un sujet</option>
               <option value="formation">Inscription à une formation</option>
@@ -1436,7 +1661,7 @@ document.querySelectorAll('.domain-header').forEach(header => {
               <option value="autre">Autre</option>
             </select>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 mb-md-4">
             <textarea name="message" rows="4" class="form-control" placeholder="Votre message" required></textarea>
           </div>
           <button type="submit" name="submit" class="btn btn-gold-custom w-100">
@@ -1449,15 +1674,13 @@ document.querySelectorAll('.domain-header').forEach(header => {
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="pt-5 pb-3">
+<footer class="pt-4 pt-md-5 pb-3">
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="footer-brand d-flex align-items-center mb-3">
-          <img src="AK formations.jpeg" alt="AK Formations Logo" class="footer-logo me-3">
-          <span class="brand-text fw-bold" style="color: #0000FF !important;">
-  A.K Formations
-</span>
+      <div class="col-lg-4 text-center text-md-start">
+        <div class="footer-brand d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
+          <img src="AK formations.jpeg" alt="AK Formations Logo" class="footer-logo me-2 me-md-3">
+          <span class="brand-text fw-bold">A.K Formations</span>
         </div>
         <p class="text-white-70">Cabinet de formation et d'accompagnement professionnel.</p>
         <p class="text-white-70"><strong class="text-warning">Domaines :</strong><br>
@@ -1467,7 +1690,7 @@ document.querySelectorAll('.domain-header').forEach(header => {
         - Assistance Visa</p>
       </div>
       
-      <div class="col-lg-3">
+      <div class="col-lg-3 text-center text-md-start">
         <h4 class="text-white">Liens rapides</h4>
         <ul class="list-unstyled">
           <li><a href="#accueil">Accueil</a></li>
@@ -1479,40 +1702,31 @@ document.querySelectorAll('.domain-header').forEach(header => {
         </ul>
       </div>
       
-      <div class="col-lg-3">
+      <div class="col-lg-3 text-center text-md-start">
         <h4 class="text-white">Localisation</h4>
         <p><i class="fas fa-map-marker-alt me-2 text-warning"></i>Siège: Abidjan<br>
         <i class="fas fa-map-marker-alt me-2 text-warning"></i>Bureau: Bouaké</p>
         
-        <h4 class="text-white mt-4">Contact</h4>
+        <h4 class="text-white mt-3 mt-md-4">Contact</h4>
         <p><i class="fas fa-phone me-2 text-warning"></i>+225 07 15 41 42 80<br>
         <i class="fas fa-phone me-2 text-warning"></i>+225 05 64 98 30 55</p>
         <p><i class="fas fa-envelope me-2 text-warning"></i>contact@akformations.ci</p>
       </div>
       
-      <div class="col-lg-2">
-  <h4 class="text-white">Suivez-nous</h4>
-
-  <div class="d-flex gap-3">
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/a.kconsultingetExpertise" target="_blank"
-       class="social-icon text-white fs-4">
-      <i class="fab fa-facebook"></i>
-    </a>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/17179824529" target="_blank"
-       class="social-icon text-white fs-4">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
-  </div>
-</div>
+      <div class="col-lg-2 text-center text-md-start">
+        <h4 class="text-white">Suivez-nous</h4>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+          <a href="https://www.facebook.com/a.kconsultingetExpertise" target="_blank" class="social-icon text-white fs-4">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://wa.me/17179824529" target="_blank" class="social-icon text-white fs-4">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
     </div>
     
-    <div class="border-top pt-4 mt-4 text-center" style="border-color: #2a4055 !important;">
+    <div class="border-top pt-3 pt-md-4 mt-3 mt-md-4 text-center" style="border-color: #2a4055 !important;">
       <p class="mb-0">© 2025 A.K Formations (SARL) – Tous droits réservés.</p>
       <div class="mt-2">
         <a href="#" class="text-white-50 me-3">Mentions légales</a>
@@ -1522,22 +1736,17 @@ document.querySelectorAll('.domain-header').forEach(header => {
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Animation au scroll -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Initialisation du carousel
     var heroCarousel = new bootstrap.Carousel(document.getElementById('heroCarousel'), {
       interval: 5000,
       ride: 'carousel',
       pause: false
     });
     
-    // Fade-in animation
     const fadeElements = document.querySelectorAll('.fade-in-section');
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1548,7 +1757,6 @@ document.querySelectorAll('.domain-header').forEach(header => {
     
     fadeElements.forEach(el => observer.observe(el));
     
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1564,7 +1772,6 @@ document.querySelectorAll('.domain-header').forEach(header => {
       });
     });
     
-    // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
       let current = '';
@@ -1584,7 +1791,6 @@ document.querySelectorAll('.domain-header').forEach(header => {
       });
     });
     
-    // Supprimer les paramètres de l'URL après 5 secondes
     setTimeout(function() {
       if (window.location.search.includes('success') || window.location.search.includes('error')) {
         const url = new URL(window.location);
@@ -1596,4 +1802,4 @@ document.querySelectorAll('.domain-header').forEach(header => {
   });
 </script>
 </body>
-</html>
+</html>s
